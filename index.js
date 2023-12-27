@@ -88,30 +88,50 @@ var finances = [
 ];
 
 var months = finances.length;
-console.log("Total number of months:\t" + months);
 
+var total = 0;
+var profit = 0;
 var sum = 0;
 var greatest = 0;
-var greatestMonth = "";
 var least = 0;
+var prev = 0;
+var change = 0;
+var average = 0;
+var month = "";
+var greatestMonth = "";
 var leastMonth = "";
+var saveMax = [];
+var saveMin = [];
 
 for (i = 0; i < months; i++) {
   subArray = finances[i];
   //console.log(subArray);
   month = subArray[0];
-  change = subArray[1];
+  profit = subArray[1];
+  change = profit - prev;
+  sum += change;
+  total += profit;
 
   if (change > greatest) {
     greatest = change;
     greatestMonth = month;
+    saveMax = subArray;
+    console.log(saveMax);
   } else if (change < least) {
     least = change;
     leastMonth = month;
+    saveMin = subArray;
+    console.log(saveMin);
   }
-  sum += change;
+  //console.log("sum;\t" + sum);
+  prev = profit;
 }
-var average = sum / (months - 1);
+
+average = sum / (months - 1);
+
+console.log("Total number of months:\t" + months);
+
+console.log("Total:\t$" + total);
 
 console.log("Average change to profit/Losses:\t" + average);
 

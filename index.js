@@ -106,7 +106,9 @@ for (i = 0; i < months; i++) {
   //console.log(subArray);
   month = subArray[0];
   profit = subArray[1];
-  change = profit - prev;
+  if (i > 0) {
+    change = profit - prev;
+  }
   sum += change;
   total += profit;
 

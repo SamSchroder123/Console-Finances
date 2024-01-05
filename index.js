@@ -123,7 +123,7 @@ for (i = 0; i < months; i++) {
   prev = profit;
 }
 
-average = sum / (months - 1);
+average = Math.round((sum / (months - 1)) * 100) / 100;
 
 console.log("Total number of months:\t" + months);
 

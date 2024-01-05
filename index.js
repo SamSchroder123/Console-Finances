@@ -106,9 +106,7 @@ for (i = 0; i < months; i++) {
   //console.log(subArray);
   month = subArray[0];
   profit = subArray[1];
-  if (i > 0) {
-    change = profit - prev;
-  }
+  change = profit - prev;
   sum += change;
   total += profit;
 
@@ -122,8 +120,8 @@ for (i = 0; i < months; i++) {
   //console.log("sum;\t" + sum);
   prev = profit;
 }
- 
-average = Math.round((sum / (months - 1)) * 100) / 100;
+
+average = sum / (months - 1);
 
 console.log("Total number of months:\t" + months);
 
